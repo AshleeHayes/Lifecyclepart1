@@ -2,6 +2,7 @@ Lifecycle Methods
 
 import React, {Component} from "react"
 import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from "constants";
+import { endianness } from "os";
 
 // https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1
 // https://reactjs.org/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes
@@ -29,6 +30,21 @@ class TodoList extends Component {
     }
     
 
+    3. shouldComponentUpdate(nextProps, nextState) {
+        // return TRUE if you want it update
+        // return FALSE if you don't want it to 
+        - should I change my clothes or not ?
+            If react has any question whether needs to rerender or not it will auto rerender 
+        -this method gives us chanc to optimize up, you can add logic here to see if its important to even render or not
+    }
+
+    4. componentWillUnMount() {
+        all good things come to an end, comp will eventually unmount(disappear) from screen
+            - primarily used for cleanup
+            ex: event listener - run code every time someone scrolls on screen, you could remove event listener here
+            - place to tear down or clean up code before it disappears
+    
+    }
 
 
  1.   render() {
